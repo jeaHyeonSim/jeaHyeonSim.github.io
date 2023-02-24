@@ -10,7 +10,8 @@ baseurl: ''
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: ko-KR
+#lang: ko-KR
+lang: en-uk
 
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
@@ -19,15 +20,18 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: JH Study                         # the main title
+title: JH Study                         # the main title 블로그 타이틀
 
 tagline: JH Study 하자   # it will display as the sub-title
 
-description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+# description: >-                        # used by seo meta and the atom feed 내 블로그 설명
+#   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+description: >-                        # used by seo meta and the atom feed 내 블로그 설명
+  다같이 만들자 포트폴리오
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://jeahyeonsim.github.io'
+# 깃허브 아이디(회원가입한 ID)
+url: 'https://jeahyeonsim.github.io' 
 
 github:
   username: jeaHyeonSim             # change to your github username
@@ -42,7 +46,7 @@ social:
   email: example@domain.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
+    # - https://twitter.com/username      # change to your twitter homepage
     - https://github.com/jeaHyeonSim       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -53,7 +57,7 @@ google_site_verification: 000               # fill in to your verification strin
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-google_analytics:
+google_analytics: # 내 사이트 방문횟수 등등 보기위함 [회원가입해야함]
   id:  '000'               # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
@@ -94,6 +98,7 @@ comments:
   disqus:
     #comments: true  # disqus라는 덧글기능을 하는 녀석입니다. 사용하시려면 true, 아니라면 false를 적으시면 됩니다.
     shortname:    # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+    # shortname : disqus 가입하면 나오는 숏네임을 적으면 된다.
   # utterances settings › https://utteranc.es/
   utterances:
     repo:         # <gh-username>/<repo>
@@ -120,12 +125,13 @@ assets:
 pwa:
   enabled: true   # the option for PWA feature
 
-paginate: 10
+paginate: 10 # 한페이지에 보이는 post 갯수
 
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
-  syntax_highlighter: rouge
+  # highlighter : 글자색
+  syntax_highlighter: rouge # 글자색
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: highlight
     # default_lang: console
@@ -150,7 +156,7 @@ defaults:
       toc: true         # Display TOC column in posts.
       # DO NOT modify the following parameter unless you are confident enough
       # to update the code of all other post links in this project.
-      permalink: /posts/:title/
+      permalink: /posts/:title/ # 글제목으로 링크 만들겠다라는 의미
   - scope:
       path: _drafts
     values:
@@ -162,7 +168,7 @@ defaults:
       layout: page
       permalink: /:title/
   - scope:
-      path: assets/img/favicons
+      path: assets/img/favicons # 페이지 파비콘 
     values:
       swcache: true
   - scope:
@@ -182,7 +188,7 @@ compress_html:
   ignore:
     envs: [development]
 
-exclude:
+exclude: # jekyll 컴파일 할때 destination 에 포함될 필요가 없는 것들을 명시한다.
   - '*.gem'
   - '*.gemspec'
   - tools
