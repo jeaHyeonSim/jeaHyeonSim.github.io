@@ -208,12 +208,102 @@ tags: [CSS]
     }
 {% endhighlight %}
 ## 가로게이지바
-#### 심플하게 만들기
+#### 심플하게 만들기 (현재 사용중인 코드)
 {% highlight ruby %}
+    ## HTML
+    <div class="sec05-div">
+        <div>금일 태양광 발전량</div>
+        <div>
+            <div class="sec05-div-graph">
+                <div id="graph01" style="background-color: #26c057; width:80%;"> </div>
+                <span>
+                    121.0/250 KWh
+                </span>    
+            </div>
+        </div>
+    </div>
+    ## CSS
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div {
+        padding-bottom: 10px;
+        height: 60px;
+    }
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div > div:first-child {
+        line-height: 20px;
+        margin-bottom: 2px;
+    }
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div > div:last-child {
 
+
+    }
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div > div:last-child > div {
+        height: 35px;
+        background-color: #1D2733;
+        border-radius: 5px;
+        width: 100%;
+        text-align: right;
+    }
+
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div > div:last-child > div > div {
+        border-radius: 5px;
+        --widthA: 100%;
+        width: var(--widthA);
+        height: 100%;
+    }
+    .mainContent-section05 > div:last-child > div:last-child  > .sec05-div > div:last-child > div > span {
+        position: relative;
+        right: 0;
+        top: -31px;
+        font-size: 14px;
+        line-height: 14px;
+        padding-right: 5px;
+        color: #fff;
+        font-weight: 600;
+    }
 {% endhighlight %}
-
 #### 참고한 코드
 {% highlight ruby %}
+    ## CSS 파일
+    .graph{height:40px;margin:0020px;background:#E6E6E6;border-radius:40px;}
+    .graphspan{display:block;padding:10px;height:100%;line-height:100%;
+    text-align:right;border-radius:40px;
+    box-sizing:border-box;color:whE6E6E6ite;}
+    .graph.graph_span{background:violet;animation:stack12s1;}
+    @keyframesstack1{
+        0%{width:0;color:rgba(255,255,255,0);}
+        40%{color:rgba(255,255,255,1);}
+    }
 
+    ## EJS
+    <divclass="graph">
+        <spanclass="graph_span"style="width:50%;"></span>
+    </div>
+
+    ## JS
+    // ajax 에서 실행
+    vargaugeElement_AnimatuionCSS=document.getElementsByClassName("graph");
+    functionsetAnimationCssValue(gaugeElement_AnimatuionCSS,value,value_sum){
+        varvalue_num=0;
+        varsum=0;
+        //ajax로가져온습도데이터평균값만들기
+        for(leti=0;i<rstData_AnimationCss.length;i++){
+            value_num=+rstData_AnimationCss[i].in_pm25
+            sum=+rstData_AnimationCss[i].in_pm25
+        };
+
+        value_num=value_num/rstData_AnimationCss.length;
+        //AnimationCSS4번
+        varcolor_name=""
+        if(value_num<50){
+            color_name="#FF8C00"
+        }elseif(value_num<70){
+            color_name="#FF0000"
+        }
+        //!!----monitoring.ejs에있는게이지표시할부분찾기
+        //애니메이션 효과
+        gaugeElement_AnimatuionCSS[0].getElementsByClassName("graph_span")[0].style.width=`${value_num*5}%`;
+        .style.backgroundColor=`${color_name}`;
+        .textContent=`${value_num*5}`;
+        //-----!!
+    }
 {% endhighlight %}
+
